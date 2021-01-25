@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="veiwport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Logowanie</title>
+    <style>
+        body {margin: 0; font-family: Arial, Helvetica, sans-serif;}
+
+        input[type=email], input[type=password] {
+        padding: 12px 20px;
+         margin: 8px 0;
+        display: inline-block;
+         border: 2px solid #ccc;
+        box-sizing: border-box;
+        }
+
+        .topnav {
+         overflow: hidden;
+         background-color: #03befc;
+         border: 5px;
+         border-color: black;
+        }
+
+        .topnav a {
+         float: left;
+         color: black;
+        text-align: center;
+        padding: 14px 16px;
+         text-decoration: none;
+         font-size: 17px;
+        }
+
+        .topnav a:hover {
+         background-color: #4a03fc;
+        color: black;
+        }
+
+        .topnav a.active {
+         background-color: #4a03fc;
+         color: white;
+        }
+
+        body, html {
+          height: 100%;
+          margin: 0;
+        }
+    </style>
+</head>
+<body bgcolor="#03befc">
+
+    <div class="topnav">
+      <a href="/">Strona główna</a>
+      <a href="pokoje">Przeglądaj dostępne pokoje</a>
+      <a href="spa">Przeglądaj usługi spa</a>
+      <a href="infopokoje">Informacje o pokojach</a>
+      <a href="infospa">Informacje o usługach spa</a>
+      <a href="onas">Dowiedz się więcej</a>
+      <a href="rejestruj">Zarejestruj się</a>
+      <a class="active" href="zaloguj">Zaloguj się</a>
+    </div>
+
+    <h1 align="center">Logowanie</h1>
+
+    <form action="zaloguj" method="post">
+        {% csrf_token %}
+        Adres email<br>
+        <input type="email" name="email"><br>
+        Hasło<br>
+        <input type="password" name="password"><br>
+        <input type="submit" value="Zaloguj">
+    </form>
+
+    <div>
+        {% for message in messages %}
+        <h3> {{message}} </h3>
+        {% endfor %}
+    </div>
+
+</body>
+</html>

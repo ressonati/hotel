@@ -1,0 +1,90 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="veiwport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hotel Natura i Zdrowie</title>
+    <style>
+        body {margin: 0; font-family: Arial, Helvetica, sans-serif;}
+
+        /* Set a style for all buttons */
+        button {
+          background-color: #4CAF50;
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          cursor: pointer;
+          width: 100%;
+        }
+
+        button:hover {
+          opacity: 0.8;
+        }
+
+        .topnav {
+          overflow: hidden;
+          background-color: #03befc;
+          border: 5px;
+          border-color: black;
+        }
+
+        .topnav a {
+          float: left;
+          color: black;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+          font-size: 17px;
+        }
+
+        .topnav a:hover {
+          background-color: #4a03fc;
+          color: black;
+        }
+
+        .topnav a.active {
+          background-color: #4a03fc;
+          color: white;
+        }
+
+        body, html {
+          height: 100%;
+          margin: 0;
+        }
+
+        .bg {
+          background-image: url("{% static 'images/mazury.jpg' %}");
+          height: 100%;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+    </style>
+</head>
+<body bgcolor="#03befc">
+
+<div class="topnav">
+  <a class="active" href="">Strona główna</a>
+  <a href="pokoje">Przeglądaj dostępne pokoje</a>
+  <a href="spa">Przeglądaj usługi spa</a>
+  <a href="infopokoje">Informacje o pokojach</a>
+  <a href="infospa">Informacje o usługach spa</a>
+  <a href="onas">Dowiedz się więcej</a>
+    {% if user.is_authenticated %}
+    <a href="wyloguj">Wyloguj się</a>
+    <p style="text-align:right; padding-right:16px">Zalogowany, {{user.username}}</p>
+    {% else %}
+  <a href="rejestruj">Zarejestruj się</a>
+  <a href="zaloguj">Zaloguj się</a>
+    {% endif %}
+</div>
+
+<h1 align=center>Natura i Zdrowie</h1>
+<div class="bg"></div>
+
+</body>
+</html>
